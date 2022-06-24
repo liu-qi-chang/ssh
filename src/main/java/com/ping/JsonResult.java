@@ -1,5 +1,8 @@
-package src.main.java.com.ping;
+package com.ping;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class JsonResult {
 
     private String code;//结果编码

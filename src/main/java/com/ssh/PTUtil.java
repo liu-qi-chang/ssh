@@ -1,4 +1,4 @@
-package src.main.java.com.ping;
+package com.ssh;
 
 
 import java.io.IOException;
@@ -6,6 +6,7 @@ import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import com.ping.*;
 
 /**
  * 验证码只能简单识别
@@ -18,7 +19,7 @@ public class PTUtil {
      * @param timeout in milliseconds
      * @return
      */
-    public static JsonResult pingResult(String hostname,Integer timeout){
+    public static JsonResult pingResult(String hostname, Integer timeout){
         JsonResult jsonResult = new JsonResult();
         try {
             InetAddress address = InetAddress.getByName(hostname);
@@ -44,7 +45,7 @@ public class PTUtil {
      * @param timeout in milliseconds
      * @return
      */
-    public static JsonResult telnetResult(String hostname,Integer port,Integer timeout){
+    public static JsonResult telnetResult(String hostname, Integer port, Integer timeout){
         JsonResult jsonResult = new JsonResult();
         try {
             Socket server = new Socket();
@@ -70,7 +71,7 @@ public class PTUtil {
         {
             int finalI = i;
             executor.submit(()->{
-                JsonResult jsonResult = telnetResult("216.24.184.201", finalI, 3000);
+                JsonResult jsonResult = telnetResult("140.25.65.122", 3306, 3000);
                 System.out.println(jsonResult.getMessage()+":"+ finalI);
                 if(jsonResult.getMessage().contains("success")){
                     ports.add(finalI);

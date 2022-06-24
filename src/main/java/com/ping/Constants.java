@@ -1,5 +1,8 @@
-package src.main.java.com.ping;
+package com.ping;
 
+import lombok.Data;
+
+@Data
 public class Constants {
     /***
      *删除状态
@@ -15,17 +18,6 @@ public class Constants {
         private final String name;
         private final String desc;
 
-        public String getValue() {
-            return value;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getDesc() {
-            return desc;
-        }
     }
 
     /***
